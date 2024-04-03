@@ -29,6 +29,7 @@ fn run_blocking() -> anyhow::Result<()> {
 
             TRACING_GUARD.set(Some(guard));
         })
+        .enable_time()
         .on_thread_stop(|| {
             TRACING_GUARD.take();
         })
